@@ -37,56 +37,116 @@ namespace laboras
             vardas = Console.ReadLine();
             Console.WriteLine("Iveskite studento pavarde ");
             pavarde = Console.ReadLine();
-            Console.WriteLine("Iveskite egzamino rezultata ");
-            egz = int.Parse(System.Console.ReadLine());
-            Console.WriteLine("1. = Galutinis (vid.) \n2. = Galutinis (med.)");
-            int nse = int.Parse(System.Console.ReadLine());
 
-            int[] mas = new int[1];
-            //Array.Resize(ref mas, mas.Length + 1);
-            switch (nse)
+            Console.WriteLine("Ar zinote savo pazymius? 1=Taip, 2=Ne");
+            int a = int.Parse(System.Console.ReadLine());
+            switch (a)
             {
                 case 1:
-                    Console.WriteLine("Iveskite namu darbu pazymius (iveskite -1 noredami baigti)");
-                    while (true)
-                    {
-                        for (int i = 0; i < mas.Length; i++)
-                        {
-                            mas[i] = int.Parse(Console.ReadLine());
-                            Array.Resize(ref mas, mas.Length + 1);
-                            if (mas[i] == -1) break;
-                        }
-                        break;
-                    }
-                    int suma = 0;
-                    for (int i = 0; i < mas.Length; i++)
-                    {
-                        suma += mas[i];
-                    }
+                    Console.WriteLine("Iveskite egzamino rezultata ");
+                    egz = int.Parse(System.Console.ReadLine());
+                    Console.WriteLine("1. = Galutinis (vid.) \n2. = Galutinis (med.)");
+                    int nse = int.Parse(System.Console.ReadLine());
 
-                    final = 0.3 * ((suma+1) / (mas.Length-2)) + 0.7 * egz;
-                    Console.WriteLine("{0}{1,10}{2,18}", "Vardas", "Pavarde", "Galutinis (vid.)");
-                    Console.WriteLine("----------------------------------");
-                    Console.WriteLine("{0}{1,10}{2,15}", vardas, pavarde, final);
+                    int[] mas = new int[1];
+                    //Array.Resize(ref mas, mas.Length + 1);
+                    switch (nse)
+                    {
+                        case 1:
+                            Console.WriteLine("Iveskite namu darbu pazymius (iveskite -1 noredami baigti)");
+                            while (true)
+                            {
+                                for (int i = 0; i < mas.Length; i++)
+                                {
+                                    mas[i] = int.Parse(Console.ReadLine());
+                                    Array.Resize(ref mas, mas.Length + 1);
+                                    if (mas[i] == -1) break;
+                                }
+                                break;
+                            }
+                            int suma = 0;
+                            for (int i = 0; i < mas.Length; i++)
+                            {
+                                suma += mas[i];
+                            }
+
+                            final = 0.3 * ((suma + 1) / (mas.Length - 2)) + 0.7 * egz;
+                            Console.WriteLine("{0}{1,10}{2,18}", "Vardas", "Pavarde", "Galutinis (vid.)");
+                            Console.WriteLine("----------------------------------");
+                            Console.WriteLine("{0}{1,10}{2,20}", vardas, pavarde, final);
+                            break;
+                        case 2:
+                            Console.WriteLine("Iveskite namu darbu pazymius (iveskite -1 noredami baigti)");
+                            while (true)
+                            {
+                                for (int i = 0; i < mas.Length; i++)
+                                {
+                                    mas[i] = int.Parse(Console.ReadLine());
+                                    Array.Resize(ref mas, mas.Length + 1);
+                                    if (mas[i] == -1) break;
+                                }
+                                break;
+                            }
+                            mas = mas.Where(val => val != -1 && val != 0).ToArray();
+                            Console.WriteLine("{0}{1,10}{2,18}", "Vardas", "Pavarde", "Galutinis (med.)");
+                            Console.WriteLine("----------------------------------");
+                            Console.WriteLine("{0}{1,10}{2,20}", vardas, pavarde, 0.3 * GetMedian(mas) + 0.7 * egz);
+                            break;
+                    }
                     break;
                 case 2:
-                    Console.WriteLine("Iveskite namu darbu pazymius (iveskite -1 noredami baigti)");
-                    while (true)
+                    egz = new Random().Next(1, 11);
+                    Console.WriteLine("Egzamino rezultatas = " + egz); 
+                    Console.WriteLine("1. = Galutinis (vid.) \n2. = Galutinis (med.)");
+                    int b = int.Parse(System.Console.ReadLine());
+
+                    int[] mas1 = new int[1];
+                    //Array.Resize(ref mas, mas.Length + 1);
+                    switch (b)
                     {
-                        for (int i = 0; i < mas.Length; i++)
-                        {
-                            mas[i] = int.Parse(Console.ReadLine());
-                            Array.Resize(ref mas, mas.Length + 1);
-                            if (mas[i] == -1) break;
-                        }
-                        break;
+                        case 1:
+                            Console.WriteLine("Iveskite namu darbu skaiciu");
+                            n = int.Parse(System.Console.ReadLine());
+                            
+                                for (int i = 0; i < n; i++)
+                                {
+                                    mas1[i] = new Random().Next(1, 11);
+                                    Array.Resize(ref mas1, mas1.Length + 1);
+                                    //if (mas1[i] == -1) break;
+                                }
+                             
+                            int suma = 0;
+                            for (int i = 0; i < mas1.Length; i++)
+                            {
+                                suma += mas1[i];
+                            }
+
+                            final = 0.3 * ((suma + 1) / (mas1.Length - 2)) + 0.7 * egz;
+                            Console.WriteLine("{0}{1,10}{2,18}", "Vardas", "Pavarde", "Galutinis (vid.)");
+                            Console.WriteLine("----------------------------------");
+                            Console.WriteLine("{0}{1,10}{2,20}", vardas, pavarde, final);
+                            break;
+                        case 2:
+                            Console.WriteLine("Iveskite namu darbu skaiciu");
+                            n = int.Parse(System.Console.ReadLine());
+                            
+                                for (int i = 0; i < n; i++)
+                                {
+                                    mas1[i] = new Random().Next(1, 11);
+                                    Array.Resize(ref mas1, mas1.Length + 1);
+                                    //if (mas1[i] == -1) break;
+                                }
+                             
+                            mas1 = mas1.Where(val => val != -1 && val != 0).ToArray();
+                            Console.WriteLine("{0}{1,10}{2,18}", "Vardas", "Pavarde", "Galutinis (med.)");
+                            Console.WriteLine("----------------------------------");
+                            Console.WriteLine("{0}{1,10}{2,20}", vardas, pavarde, 0.3 * GetMedian(mas1) + 0.7 * egz);
+                            break;
                     }
-                    mas = mas.Where(val => val != -1 && val != 0).ToArray();
-                    Console.WriteLine("{0}{1,10}{2,18}", "Vardas", "Pavarde", "Galutinis (med.)");
-                    Console.WriteLine("----------------------------------");
-                    Console.WriteLine("{0}{1,10}{2,15}", vardas, pavarde, 0.3 * GetMedian(mas) + 0.7 * egz);
                     break;
             }
+
+           
         }
     }
 }
