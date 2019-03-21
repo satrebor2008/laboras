@@ -56,13 +56,16 @@ namespace laboras
                             Console.WriteLine("Iveskite namu darbu pazymius (iveskite -1 noredami baigti)");
                             while (true)
                             {
-                                for (int i = 0; i < mas.Length; i++)
-                                {
-                                    mas[i] = int.Parse(Console.ReadLine());
+                                int sk = int.Parse(Console.ReadLine());
+                                if (sk == -1) break;
+                                if (mas.Length != 1)
+                                {   
                                     Array.Resize(ref mas, mas.Length + 1);
-                                    if (mas[i] == -1) break;
                                 }
-                                break;
+                                
+                                mas[mas.Length-1] = int.Parse(Console.ReadLine());
+
+                                
                             }
                             int suma = 0;
                             for (int i = 0; i < mas.Length; i++)
@@ -70,7 +73,7 @@ namespace laboras
                                 suma += mas[i];
                             }
 
-                            final = 0.3 * ((suma + 1) / (mas.Length - 2)) + 0.7 * egz;
+                            final = 0.3 * ((suma) / (mas.Length)) + 0.7 * egz;
                             Console.WriteLine("{0}{1,10}{2,18}", "Vardas", "Pavarde", "Galutinis (vid.)");
                             Console.WriteLine("----------------------------------");
                             Console.WriteLine("{0}{1,10}{2,20}", vardas, pavarde, final);
@@ -79,15 +82,16 @@ namespace laboras
                             Console.WriteLine("Iveskite namu darbu pazymius (iveskite -1 noredami baigti)");
                             while (true)
                             {
-                                for (int i = 0; i < mas.Length; i++)
+                                int sk = int.Parse(Console.ReadLine());
+                                if (sk == -1) break;
+                                if (mas.Length != 1)
                                 {
-                                    mas[i] = int.Parse(Console.ReadLine());
                                     Array.Resize(ref mas, mas.Length + 1);
-                                    if (mas[i] == -1) break;
                                 }
-                                break;
+
+                                mas[mas.Length - 1] = int.Parse(Console.ReadLine());
                             }
-                            mas = mas.Where(val => val != -1 && val != 0).ToArray();
+                            
                             Console.WriteLine("{0}{1,10}{2,18}", "Vardas", "Pavarde", "Galutinis (med.)");
                             Console.WriteLine("----------------------------------");
                             Console.WriteLine("{0}{1,10}{2,20}", vardas, pavarde, 0.3 * GetMedian(mas) + 0.7 * egz);
@@ -101,7 +105,6 @@ namespace laboras
                     int b = int.Parse(System.Console.ReadLine());
 
                     int[] mas1 = new int[1];
-                    //Array.Resize(ref mas, mas.Length + 1);
                     switch (b)
                     {
                         case 1:
@@ -112,7 +115,6 @@ namespace laboras
                                 {
                                     mas1[i] = new Random().Next(1, 11);
                                     Array.Resize(ref mas1, mas1.Length + 1);
-                                    //if (mas1[i] == -1) break;
                                 }
                              
                             int suma = 0;
@@ -134,7 +136,6 @@ namespace laboras
                                 {
                                     mas1[i] = new Random().Next(1, 11);
                                     Array.Resize(ref mas1, mas1.Length + 1);
-                                    //if (mas1[i] == -1) break;
                                 }
                              
                             mas1 = mas1.Where(val => val != -1 && val != 0).ToArray();
