@@ -41,15 +41,14 @@ namespace laboras
 
                 file.Close();
 
-            
-            
 
-            Console.WriteLine("{0, -15}{1, -15}{2, -15}", "Vardas", "Pavarde", "Galutinis");
-            Console.WriteLine("----------------------------------------------");
+            studentai.Sort((x,y) => x.vardas.CompareTo(y.vardas));
+            Console.WriteLine("{0, -15}{1, -15}{2, -25}{3, -25} ", "Vardas", "Pavarde", "Galutinis (vid.)", "Galutinis (med.)");
+            Console.WriteLine("-----------------------------------------------------------------------");
 
             foreach (Studentas s in studentai)
             {
-                Console.WriteLine("{0, -15}{1, -15}{2, -15}", s.vardas, s.pavarde, s.Egzaminas);
+                Console.WriteLine("{0, -15}{1, -15}{2, -25}{3, -25}", s.vardas, s.pavarde, s.BendrasVid(), s.BendrasMed());
             }
 
         }
