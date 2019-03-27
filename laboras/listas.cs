@@ -8,25 +8,6 @@ namespace laboras
 {
     class listas
     {
-        private static float GetMedian(int[] mas)
-        {
-            Array.Sort(mas);
-            int count = mas.Length;
-            if (count == 0)
-            {
-                throw new InvalidOperationException("Empty collection");
-            }
-            else if (count % 2 == 0)
-            {
-                float a = mas[count / 2 - 1];
-                float b = mas[count / 2];
-                return (a + b) / 2;
-            }
-            else
-            {
-                return mas[count / 2];
-            }
-        }
 
         public static void Start()
         {
@@ -77,7 +58,7 @@ namespace laboras
                             }
                             Console.WriteLine("{0}{1,10}{2,18}", "Vardas", "Pavarde", "Galutinis (med.)");
                             Console.WriteLine("----------------------------------");
-                            Console.WriteLine("{0}{1,10}{2,15}", vardas, pavarde, 0.3 * GetMedian(nd.ToArray()) + 0.7 * egz);
+                            Console.WriteLine("{0}{1,10}{2,15}", vardas, pavarde, 0.3 * Skaiciavimai.GetMedian(nd.ToArray()) + 0.7 * egz);
                             break;
                     }
                     break;
@@ -118,7 +99,7 @@ namespace laboras
                             }
                             Console.WriteLine("{0}{1,10}{2,18}", "Vardas", "Pavarde", "Galutinis (med.)");
                             Console.WriteLine("----------------------------------");
-                            Console.WriteLine("{0}{1,10}{2,15}", vardas, pavarde, 0.3 * GetMedian(ndd.ToArray()) + 0.7 * egz);
+                            Console.WriteLine("{0}{1,10}{2,15}", vardas, pavarde, 0.3 * Skaiciavimai.GetMedian(ndd.ToArray()) + 0.7 * egz);
                             break;
                     }
                     break;

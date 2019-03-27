@@ -47,6 +47,9 @@
     <Compile Include="masyvas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Skaiciavimai.cs" />
+    <Compile Include="skaitymas.cs" />
+    <Compile Include="Studentas.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
