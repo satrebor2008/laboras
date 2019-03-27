@@ -1,2 +1,2 @@
 vardas pavarde 2 2 2 3 6 10
-aardas3 pavarde3 2 2 2 5 6 10
+aardas3 pavarde3 2 6 7 5 6 10

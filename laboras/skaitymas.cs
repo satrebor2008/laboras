@@ -17,7 +17,9 @@ namespace laboras
             List<Studentas> studentai = new List<Studentas>();
 
             string line;
-           
+
+            try
+            {
                 StreamReader file = new StreamReader("kursiokai.txt");
                 while ((line = file.ReadLine()) != null)
                 {
@@ -27,19 +29,36 @@ namespace laboras
                     Studentas stud = new Studentas();
                     stud.vardas = args[0];
                     stud.pavarde = args[1];
-                    for (int i=0; i<5; i++)
+                    for (int i = 0; i < 5; i++)
                     {
-
-                        stud.NamuDarbai.Add(int.Parse(args[2 + i]));
-                       
+                        try
+                        {
+                            stud.NamuDarbai.Add(int.Parse(args[2 + i]));
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Neisejo nuskaityti namu darbo pazymio [" + args[2 + i] + "]");
+                        }
+                    };
+                    try
+                    {
+                        stud.Egzaminas = (int.Parse(args[7]));
                     }
-                stud.Egzaminas = int.Parse(args[7]);
-
-
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Neisejo nuskaityti egzamino pazymio [" + args[7] + "]");
+                    }
                     studentai.Add(stud);
                 }
 
                 file.Close();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Ivyko klaida skaitant faila:");
+                Console.WriteLine(e.Message);
+            }
 
 
             studentai.Sort((x,y) => x.vardas.CompareTo(y.vardas));
