@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace laboras
 {
@@ -13,6 +14,8 @@ namespace laboras
         {
             for(int i=0; i < 5; i++)
             {
+                Stopwatch watch = new Stopwatch();
+                watch.Start();
                 List<Studentas> studentai = new List<Studentas>();
                 Random r = new Random();
                 for (int j = 0; j < Math.Pow(10, i+1); j++)
@@ -62,8 +65,9 @@ namespace laboras
                     writer2.WriteLine(s.vardas + " " + s.pavarde + " " + s.NamuDarbai[0] + " " + s.NamuDarbai[1] + " " + s.NamuDarbai[2] + " " + s.NamuDarbai[3] + " " + s.NamuDarbai[4] + " " + s.Egzaminas);
                 }
                 writer2.Close();
+                watch.Stop();
+                Console.WriteLine("Programa uztruko: " + watch.ElapsedMilliseconds + "ms su " + Math.Pow(10, i + 1) + " irasu");
             }
-
         }
     }
 }
