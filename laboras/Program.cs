@@ -11,7 +11,7 @@ namespace laboras
 
         static void Main(string[] args)
         {
-            Console.WriteLine("1. = Su ivedimu per konsole \n2. = Su nuskaitymu is failo");
+            Console.WriteLine("1. = Su ivedimu per konsole \n2. = Su nuskaitymu is failo \n3. = Atsitiktiniu failu generavimas");
             int n = int.Parse(System.Console.ReadLine());
             switch (n)
             {
@@ -20,6 +20,9 @@ namespace laboras
                     break;
                 case 2:
                     skaitymas.Start3();
+                    break;
+                case 3:
+                    atsitiktinis.Failai();
                     break;
             }
             

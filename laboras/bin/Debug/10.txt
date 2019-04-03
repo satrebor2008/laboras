@@ -1,0 +1,10 @@
+vardas0 pavarde0 7 7 5 6 10 7
+vardas1 pavarde1 9 6 1 7 1 5
+vardas2 pavarde2 2 2 5 8 8 0
+vardas3 pavarde3 3 9 7 2 0 5
+vardas4 pavarde4 3 0 10 1 5 8
+vardas5 pavarde5 1 7 5 6 7 2
+vardas6 pavarde6 3 9 3 8 3 0
+vardas7 pavarde7 4 7 5 1 4 1
+vardas8 pavarde8 8 5 3 6 1 1
+vardas9 pavarde9 10 4 6 8 2 7
