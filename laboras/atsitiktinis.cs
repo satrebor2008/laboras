@@ -35,7 +35,35 @@ namespace laboras
                     writer.WriteLine(s.vardas + " " + s.pavarde + " " + s.NamuDarbai[0] + " " + s.NamuDarbai[1] + " " + s.NamuDarbai[2] + " " + s.NamuDarbai[3] + " " + s.NamuDarbai[4] + " " + s.Egzaminas);
                 }
                 writer.Close();
+
+                List<Studentas> vargsiukai = new List<Studentas>();
+                List<Studentas> galvociai = new List<Studentas>();
+                foreach (Studentas s in studentai)
+                {
+                    if(s.BendrasVid() < 5)
+                    {
+                        vargsiukai.Add(s);
+                    }
+                    else
+                    {
+                        galvociai.Add(s);
+                    }
+                }
+                StreamWriter writer1 = new StreamWriter(Math.Pow(10, i + 1) + "vargsiukai.txt");
+                foreach (Studentas s in vargsiukai)
+                {
+                    writer1.WriteLine(s.vardas + " " + s.pavarde + " " + s.NamuDarbai[0] + " " + s.NamuDarbai[1] + " " + s.NamuDarbai[2] + " " + s.NamuDarbai[3] + " " + s.NamuDarbai[4] + " " + s.Egzaminas);
+                }
+                writer1.Close();
+
+                StreamWriter writer2 = new StreamWriter(Math.Pow(10, i + 1) + "galvociai.txt");
+                foreach (Studentas s in galvociai)
+                {
+                    writer2.WriteLine(s.vardas + " " + s.pavarde + " " + s.NamuDarbai[0] + " " + s.NamuDarbai[1] + " " + s.NamuDarbai[2] + " " + s.NamuDarbai[3] + " " + s.NamuDarbai[4] + " " + s.Egzaminas);
+                }
+                writer2.Close();
             }
+
         }
     }
 }

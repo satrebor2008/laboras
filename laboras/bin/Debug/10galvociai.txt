@@ -1,0 +1,3 @@
+vardas3 pavarde3 8 3 1 5 5 6
+vardas6 pavarde6 5 5 1 9 5 6
+vardas8 pavarde8 8 3 0 6 8 8
