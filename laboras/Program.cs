@@ -11,7 +11,7 @@ namespace laboras
 
         static void Main(string[] args)
         {
-            Console.WriteLine("1. = Su ivedimu per konsole \n2. = Su nuskaitymu is failo \n3. = Atsitiktiniu failu generavimas\n4. = Testavimas su list/queue/linkedlist");
+            Console.WriteLine("1. = Su ivedimu per konsole \n2. = Su nuskaitymu is failo \n3. = Atsitiktiniu failu generavimas\n4. = Testavimas su list/queue/linkedlist\n5. = Optimizavimas");
             int n = int.Parse(System.Console.ReadLine());
             switch (n)
             {
@@ -27,6 +27,10 @@ namespace laboras
                 case 4:
                     Konteineriai.Failai();
                     break;
+                case 5:
+                    optimizavimas.Failai();
+                    break;
+
             }
             
         }
